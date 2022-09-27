@@ -1,4 +1,5 @@
 package personnages;
+import java.util.Random;
 
 public class Druide {
 	private String nom;
@@ -28,6 +29,10 @@ public class Druide {
 		return "Le druide " + nom + " : ";
 	}
 	
-	
+	public void effetPotionMax() {
+		Random random = new Random();
+		random.nextInt(1,effetPotionMin,effetPotionMax);
+		
+	}
 	
 }
