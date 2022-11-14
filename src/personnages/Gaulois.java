@@ -36,19 +36,20 @@ public class Gaulois {
 	
 	
 //	public void frapper(Romain romain) {
-//		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+//		System.out.println(nom + " envoie un grand coup dans la mï¿½choire de " + romain.getNom());
 //		romain.recevoirCoup((force / 3)*effetPotion);
 //	}
 	 
 	 
 
-	 public void frapper(Romain romain) { 
-	 System.out.println(nom  +  "  envoie  un  grand  coup  dans  la mâchoire de " + romain.getNom()); 
-	 Equipement[]  trophees  =  romain.recevoirCoup((force  /  3)  * effetPotion); 
-	 for  (int  i  =  0;  trophees  !=  null  &&  i  <  trophees.length;  i++, nb_trophees++) { 
-	 this.trophees[nb_trophees] = trophees[i]; 
-	 } 
-	 }
+	 public void frapper(Romain romain) {
+			System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
+			Equipement[] trophees = romain.recevoirCoup((force / 3) * effetPotion);
+			for (int i = 0; trophees != null && i < trophees.length; i++,nb_trophees++) {
+				this.trophees[nb_trophees] = trophees[i];
+			}
+			
+		}
 	 
 	 
 	 
@@ -60,7 +61,18 @@ public class Gaulois {
 	
 	public void boirePotion(int forcePotion) {
 		effetPotion = forcePotion;
-		parler("Merci Druide, je sens que ma force est " + forcePotion + " fois décuplée.");
+		parler("Merci Druide, je sens que ma force est " + forcePotion + " fois dï¿½cuplï¿½e.");
+	}
+	
+	
+	public void faireUneDonation(Musee musee) {
+		if (nb_trophees!=0) {
+			parler("Je donne au musee tous mes trophees :");
+			for (int i=0; i<nb_trophees;i++) {
+				System.out.println(trophees[i].toString());
+				musee.donnerTrophee(this, trophees[i]);
+			}
+		}
 	}
 	
 	
@@ -72,11 +84,9 @@ public class Gaulois {
 	
 	
 	
-	
-	
 	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Astérix", 8);
-		Romain cesar = new Romain("César", 5);
+		Gaulois asterix = new Gaulois("Astï¿½rix", 8);
+		Romain cesar = new Romain("Cï¿½sar", 5);
 		System.out.println(asterix);
 		System.out.println(asterix.getNom());
 		
